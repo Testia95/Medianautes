@@ -2,24 +2,10 @@
 -----------------------------------------
 Fichier : templates/media.html
 -----------------------------------------
-Page dédiée à un média
+Page dédiée à un média affichant ses informations et ses vidéos publiées.
 -----------------------------------------
 -->
 {% extends "base.html" %}
-
-{% block sidebar %}
-<!-- 
-  On peut reprendre la même logique que dans index.html ou 
-  simplifier en listant simplement les médias.
--->
-<ul>
-  {% for name in media_names_sorted %}
-    <li>
-      <a href="{{ url_for('media_page', media_name=name) }}">{{ name }}</a>
-    </li>
-  {% endfor %}
-</ul>
-{% endblock %}
 
 {% block content %}
   <h2>Média : {{ media_name }}</h2>

@@ -1,10 +1,10 @@
 /* -----------------------------------------
    Fichier : static/style.css
    -----------------------------------------
-   Styles basiques pour le site
+   Styles globaux pour Medianautes
 -------------------------------------------- */
 
-/* Reset / simplification */
+/* Réinitialisation de base */
 * {
     margin: 0;
     padding: 0;
@@ -13,56 +13,96 @@
   
   body {
     font-family: Arial, sans-serif;
-    background-color: #f1f1f1;
+    background-color: #f4f4f4;
+    line-height: 1.6;
   }
   
+  /* Header */
   header {
     background-color: #333;
     color: #fff;
     padding: 1rem;
   }
-  
-  header h1, header nav {
+  header h1 {
     display: inline-block;
     margin-right: 2rem;
   }
-  
-  header a {
+  header h1 a {
+    color: #fff;
+    text-decoration: none;
+  }
+  header nav a {
     color: #fff;
     text-decoration: none;
     margin-right: 1rem;
   }
   
+  /* Container et mise en page */
   .container {
     display: flex;
     margin: 1rem;
   }
-  
   .sidebar {
-    width: 20%;
-    background-color: #fff;
+    min-width: 250px;
+    background-color: #f7f7f7;
     padding: 1rem;
+    border: 1px solid #ddd;
     margin-right: 1rem;
     border-radius: 5px;
   }
-  
-  .sidebar h2 {
-    margin-bottom: 1rem;
-  }
-  
   .content {
-    width: 80%;
+    flex: 1;
     background-color: #fff;
     padding: 1rem;
+    border: 1px solid #ddd;
     border-radius: 5px;
   }
   
+  /* Barre latérale déployable */
+  .sidebar h2 {
+    margin-bottom: 1rem;
+  }
+  .sidebar-media {
+    list-style: none;
+    padding: 0;
+  }
+  .sidebar-media li {
+    margin-bottom: 1rem;
+  }
+  .sidebar-media details {
+    background: #fff;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .sidebar-media summary {
+    cursor: pointer;
+    font-weight: bold;
+    outline: none;
+  }
+  .sidebar-media summary a {
+    text-decoration: none;
+    color: #333;
+  }
+  .sidebar-videos {
+    list-style: none;
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+  }
+  .sidebar-videos li {
+    margin-bottom: 0.5rem;
+  }
+  .sidebar-videos li a {
+    text-decoration: none;
+    color: #555;
+  }
+  
+  /* Grille des vidéos */
   .video-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
   }
-  
   .video-item {
     width: 200px;
     background-color: #fafafa;
@@ -70,21 +110,26 @@
     border: 1px solid #eee;
     border-radius: 5px;
   }
-  
+  .video-item-inline {
+    margin-bottom: 1rem;
+  }
   .thumbnail {
     max-width: 100%;
     display: block;
     margin-bottom: 0.5rem;
   }
+  .thumbnail-small {
+    width: 80px;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+  }
   
+  /* Sections d'orientation */
   .orientation-block {
     margin-bottom: 2rem;
   }
   
-  .orientation-block div {
-    margin-bottom: 1rem;
-  }
-  
+  /* Footer */
   footer {
     text-align: center;
     padding: 1rem;

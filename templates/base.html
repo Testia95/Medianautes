@@ -2,7 +2,7 @@
 -----------------------------------------
 Fichier : templates/base.html
 -----------------------------------------
-Structure de base du site.
+Template de base commun à toutes les pages, incluant une barre latérale déployable.
 -----------------------------------------
 -->
 <!DOCTYPE html>
@@ -17,17 +17,33 @@ Structure de base du site.
   <header>
     <h1><a href="{{ url_for('home') }}">Medianautes</a></h1>
     <nav>
-      <!-- Lien pour rafraîchir les flux, si on le souhaite -->
+      <!-- Lien pour rafraîchir les flux RSS -->
       <a href="{{ url_for('refresh_feeds') }}">Rafraîchir les flux</a>
     </nav>
   </header>
 
   <div class="container">
-    <!-- Barre latérale à gauche -->
+    <!-- Barre latérale commune sur toutes les pages -->
     <aside class="sidebar">
       <h2>Médias</h2>
-      <!-- On prévoit un bloc qui sera alimenté via le template child -->
-      {% block sidebar %}{% endblock %}
+      <ul class="sidebar-media">
+        {% for media_name in media_names_sorted %}
+          <li>
+            <details>
+              <summary>
+                <a href="{{ url_for('media_page', media_name=media_name) }}">{{ media_name }}</a>
+              </summary>
+              <ul class="sidebar-videos">
+                {% for video in last_5_by_media[media_name] %}
+                  <li>
+                    <a href="{{ video.link }}" target="_blank">{{ video.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </details>
+          </li>
+        {% endfor %}
+      </ul>
     </aside>
 
     <!-- Contenu principal -->
