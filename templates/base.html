@@ -3,7 +3,7 @@
 Fichier : templates/base.html
 -----------------------------------------
 Template de base commun à toutes les pages.
-La barre latérale est identique pour toutes.
+La barre latérale est identique sur toutes.
 -----------------------------------------
 -->
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ La barre latérale est identique pour toutes.
   <meta charset="UTF-8" />
   <title>Medianautes - {{ title if title else 'Accueil' }}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <!-- Police littéraire : Merriweather (via Google Fonts) -->
+  <!-- Police littéraire : Merriweather -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
 </head>
@@ -42,10 +42,23 @@ La barre latérale est identique pour toutes.
               <ul class="sidebar-videos">
                 {% for video in last_5_by_media[media_name] %}
                   <li>
-                    <a href="{{ video.link }}" target="_blank">
-                      {{ video.title }}
-                    </a>
+                    <a href="{{ video.link }}" target="_blank">{{ video.title }}</a>
                   </li>
                 {% endfor %}
               </ul>
             </details>
+          </li>
+        {% endfor %}
+      </ul>
+    </aside>
+
+    <main class="content">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 - Medianautes</p>
+  </footer>
+</body>
+</html>
