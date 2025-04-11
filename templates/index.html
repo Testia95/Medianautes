@@ -2,20 +2,25 @@
 -----------------------------------------
 Fichier : templates/index.html
 -----------------------------------------
-Page d'accueil affichant les dernières vidéos et le classement par orientation.
+Page d'accueil avec :
+- 12 dernières vidéos (tous médias) en grille
+- 4 colonnes (Gauche, Centre, Droite, Autres)
 -----------------------------------------
 -->
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>Les 12 dernières vidéos (tous médias)</h2>
+
+  <h2>Les 12 dernières vidéos (tous médias confondus)</h2>
   <div class="video-grid">
     {% for video in last_12_videos %}
       <div class="video-item">
-        <img src="{{ video.thumbnail }}" alt="Miniature" class="thumbnail" />
-        <p>
+        <img src="{{ video.thumbnail }}" alt="Miniature" class="thumbnail">
+        <p class="video-info">
           <a href="{{ video.link }}" target="_blank">{{ video.title }}</a><br/>
-          <small>{{ video.published.strftime("%d/%m/%Y %H:%M") }} - {{ video.media_name }}</small>
+          <small>
+            {{ video.published.strftime("%d/%m/%Y %H:%M") }} - {{ video.media_name }}
+          </small>
         </p>
       </div>
     {% endfor %}
@@ -25,45 +30,61 @@ Page d'accueil affichant les dernières vidéos et le classement par orientation
 
   <h2>Par orientation</h2>
   <div class="orientations-container">
+    <!-- Gauche -->
     <div class="orientation-block">
       <h3>Gauche</h3>
       {% for video in videos_by_orientation['Gauche'] %}
-        <div class="video-item-inline">
+        <div class="orientation-video">
           <img src="{{ video.thumbnail }}" alt="Miniature" class="thumbnail-small" />
-          <a href="{{ video.link }}" target="_blank">{{ video.title }}</a>
-          <small>{{ video.published.strftime("%d/%m/%Y %H:%M") }} - {{ video.media_name }}</small>
+          <div>
+            <a href="{{ video.link }}" target="_blank">{{ video.title }}</a><br/>
+            <small>{{ video.published.strftime("%d/%m/%Y %H:%M") }} - {{ video.media_name }}</small>
+          </div>
         </div>
       {% endfor %}
     </div>
+
+    <!-- Centre -->
     <div class="orientation-block">
       <h3>Centre</h3>
       {% for video in videos_by_orientation['Centre'] %}
-        <div class="video-item-inline">
+        <div class="orientation-video">
           <img src="{{ video.thumbnail }}" alt="Miniature" class="thumbnail-small" />
-          <a href="{{ video.link }}" target="_blank">{{ video.title }}</a>
-          <small>{{ video.published.strftime("%d/%m/%Y %H:%M") }} - {{ video.media_name }}</small>
+          <div>
+            <a href="{{ video.link }}" target="_blank">{{ video.title }}</a><br/>
+            <small>{{ video.published.strftime("%d/%m/%Y %H:%M") }} - {{ video.media_name }}</small>
+          </div>
         </div>
       {% endfor %}
     </div>
+
+    <!-- Droite -->
     <div class="orientation-block">
       <h3>Droite</h3>
       {% for video in videos_by_orientation['Droite'] %}
-        <div class="video-item-inline">
+        <div class="orientation-video">
           <img src="{{ video.thumbnail }}" alt="Miniature" class="thumbnail-small" />
-          <a href="{{ video.link }}" target="_blank">{{ video.title }}</a>
-          <small>{{ video.published.strftime("%d/%m/%Y %H:%M") }} - {{ video.media_name }}</small>
+          <div>
+            <a href="{{ video.link }}" target="_blank">{{ video.title }}</a><br/>
+            <small>{{ video.published.strftime("%d/%m/%Y %H:%M") }} - {{ video.media_name }}</small>
+          </div>
         </div>
       {% endfor %}
     </div>
+
+    <!-- Autres -->
     <div class="orientation-block">
       <h3>Autres</h3>
       {% for video in videos_by_orientation['Autres'] %}
-        <div class="video-item-inline">
+        <div class="orientation-video">
           <img src="{{ video.thumbnail }}" alt="Miniature" class="thumbnail-small" />
-          <a href="{{ video.link }}" target="_blank">{{ video.title }}</a>
-          <small>{{ video.published.strftime("%d/%m/%Y %H:%M") }} - {{ video.media_name }}</small>
+          <div>
+            <a href="{{ video.link }}" target="_blank">{{ video.title }}</a><br/>
+            <small>{{ video.published.strftime("%d/%m/%Y %H:%M") }} - {{ video.media_name }}</small>
+          </div>
         </div>
       {% endfor %}
     </div>
   </div>
+
 {% endblock %}

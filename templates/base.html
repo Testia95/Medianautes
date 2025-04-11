@@ -2,7 +2,8 @@
 -----------------------------------------
 Fichier : templates/base.html
 -----------------------------------------
-Template de base commun à toutes les pages, incluant une barre latérale déployable.
+Template de base commun à toutes les pages.
+La barre latérale est identique pour toutes.
 -----------------------------------------
 -->
 <!DOCTYPE html>
@@ -11,19 +12,24 @@ Template de base commun à toutes les pages, incluant une barre latérale déplo
   <meta charset="UTF-8" />
   <title>Medianautes - {{ title if title else 'Accueil' }}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <!-- Police littéraire : Merriweather (via Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header>
-    <h1><a href="{{ url_for('home') }}">Medianautes</a></h1>
-    <nav>
-      <!-- Lien pour rafraîchir les flux RSS -->
-      <a href="{{ url_for('refresh_feeds') }}">Rafraîchir les flux</a>
-    </nav>
+    <div class="header-container">
+      <h1>
+        <a href="{{ url_for('home') }}">Medianautes</a>
+      </h1>
+      <nav>
+        <a href="{{ url_for('refresh_feeds') }}">Rafraîchir les flux</a>
+      </nav>
+    </div>
   </header>
 
-  <div class="container">
-    <!-- Barre latérale commune sur toutes les pages -->
+  <div class="main-container">
     <aside class="sidebar">
       <h2>Médias</h2>
       <ul class="sidebar-media">
@@ -36,25 +42,10 @@ Template de base commun à toutes les pages, incluant une barre latérale déplo
               <ul class="sidebar-videos">
                 {% for video in last_5_by_media[media_name] %}
                   <li>
-                    <a href="{{ video.link }}" target="_blank">{{ video.title }}</a>
+                    <a href="{{ video.link }}" target="_blank">
+                      {{ video.title }}
+                    </a>
                   </li>
                 {% endfor %}
               </ul>
             </details>
-          </li>
-        {% endfor %}
-      </ul>
-    </aside>
-
-    <!-- Contenu principal -->
-    <main class="content">
-      {% block content %}{% endblock %}
-    </main>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 - Medianautes</p>
-  </footer>
-
-</body>
-</html>

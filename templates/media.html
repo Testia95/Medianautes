@@ -2,7 +2,7 @@
 -----------------------------------------
 Fichier : templates/media.html
 -----------------------------------------
-Page dédiée à un média affichant ses informations et ses vidéos publiées.
+Page d'un média spécifique
 -----------------------------------------
 -->
 {% extends "base.html" %}
@@ -18,8 +18,8 @@ Page dédiée à un média affichant ses informations et ses vidéos publiées.
   <div class="video-grid">
     {% for video in media_videos %}
       <div class="video-item">
-        <img src="{{ video.thumbnail }}" alt="Miniature" class="thumbnail" />
-        <p>
+        <img src="{{ video.thumbnail }}" alt="Miniature" class="thumbnail">
+        <p class="video-info">
           <a href="{{ video.link }}" target="_blank">{{ video.title }}</a><br/>
           <small>{{ video.published.strftime("%d/%m/%Y %H:%M") }}</small>
         </p>
