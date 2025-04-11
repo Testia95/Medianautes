@@ -1,0 +1,95 @@
+/* -----------------------------------------
+   Fichier : static/style.css
+   -----------------------------------------
+   Styles basiques pour le site
+-------------------------------------------- */
+
+/* Reset / simplification */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+  }
+  
+  header h1, header nav {
+    display: inline-block;
+    margin-right: 2rem;
+  }
+  
+  header a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1rem;
+  }
+  
+  .container {
+    display: flex;
+    margin: 1rem;
+  }
+  
+  .sidebar {
+    width: 20%;
+    background-color: #fff;
+    padding: 1rem;
+    margin-right: 1rem;
+    border-radius: 5px;
+  }
+  
+  .sidebar h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .content {
+    width: 80%;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+  
+  .video-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .video-item {
+    width: 200px;
+    background-color: #fafafa;
+    padding: 0.5rem;
+    border: 1px solid #eee;
+    border-radius: 5px;
+  }
+  
+  .thumbnail {
+    max-width: 100%;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .orientation-block {
+    margin-bottom: 2rem;
+  }
+  
+  .orientation-block div {
+    margin-bottom: 1rem;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: #333;
+    color: #fff;
+  }
+  

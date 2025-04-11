@@ -1,0 +1,98 @@
+<!--
+-----------------------------------------
+Fichier : templates/index.html
+-----------------------------------------
+Page d'accueil
+-----------------------------------------
+-->
+{% extends "base.html" %}
+
+{% block sidebar %}
+<ul>
+  {% for media_name in media_names_sorted %}
+    <li>
+      <strong><a href="{{ url_for('media_page', media_name=media_name) }}">{{ media_name }}</a></strong>
+      <ul>
+        {% for video in last_5_by_media[media_name] %}
+          <li>
+            <!-- Titre de la vidéo, lien vers la vidéo YouTube -->
+            <a href="{{ video.link }}" target="_blank">
+              {{ video.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}
+
+{% block content %}
+  <h2>Les 12 dernières vidéos (tous médias)</h2>
+  <div class="video-grid">
+    {% for video in last_12_videos %}
+      <div class="video-item">
+        <img src="{{ video.thumbnail }}" alt="Miniature" class="thumbnail" />
+        <p>
+          <a href="{{ video.link }}" target="_blank">{{ video.title }}</a><br/>
+          <small>{{ video.published.strftime("%d/%m/%Y %H:%M") }} - {{ video.media_name }}</small>
+        </p>
+      </div>
+    {% endfor %}
+  </div>
+
+  <hr/>
+
+  <h2>Par orientation</h2>
+
+  <div class="orientations-container">
+    <!-- Gauche -->
+    <div class="orientation-block">
+      <h3>Gauche</h3>
+      {% for video in videos_by_orientation['Gauche'] %}
+        <div>
+          <img src="{{ video.thumbnail }}" alt="Miniature" class="thumbnail" />
+          <a href="{{ video.link }}" target="_blank">{{ video.title }}</a>
+          <small>{{ video.published.strftime("%d/%m/%Y %H:%M") }} - {{ video.media_name }}</small>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Centre -->
+    <div class="orientation-block">
+      <h3>Centre</h3>
+      {% for video in videos_by_orientation['Centre'] %}
+        <div>
+          <img src="{{ video.thumbnail }}" alt="Miniature" class="thumbnail" />
+          <a href="{{ video.link }}" target="_blank">{{ video.title }}</a>
+          <small>{{ video.published.strftime("%d/%m/%Y %H:%M") }} - {{ video.media_name }}</small>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Droite -->
+    <div class="orientation-block">
+      <h3>Droite</h3>
+      {% for video in videos_by_orientation['Droite'] %}
+        <div>
+          <img src="{{ video.thumbnail }}" alt="Miniature" class="thumbnail" />
+          <a href="{{ video.link }}" target="_blank">{{ video.title }}</a>
+          <small>{{ video.published.strftime("%d/%m/%Y %H:%M") }} - {{ video.media_name }}</small>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Autres -->
+    <div class="orientation-block">
+      <h3>Autres</h3>
+      {% for video in videos_by_orientation['Autres'] %}
+        <div>
+          <img src="{{ video.thumbnail }}" alt="Miniature" class="thumbnail" />
+          <a href="{{ video.link }}" target="_blank">{{ video.title }}</a>
+          <small>{{ video.published.strftime("%d/%m/%Y %H:%M") }} - {{ video.media_name }}</small>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

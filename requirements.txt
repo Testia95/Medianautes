@@ -1,0 +1,5 @@
+# -----------------------
+# Fichier : requirements.txt
+# -----------------------
+feedparser==6.0.10
+Flask==2.3.2

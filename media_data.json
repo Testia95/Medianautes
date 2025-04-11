@@ -1,0 +1,38 @@
+{
+    "Blast": {
+      "flux": "https://www.youtube.com/feeds/videos.xml?channel_id=UC__xRB5L4toU9yYawt_lIKg",
+      "orientation": "Gauche",
+      "pdg": "Inconnu",
+      "description": "Média indépendant orienté à gauche...",
+      "interets_economiques": "Financements par dons, subventions publiques, etc."
+    },
+    "LeMédia": {
+      "flux": "https://www.youtube.com/feeds/videos.xml?channel_id=UCT67YOMntJxfRnO_9bXDpvw",
+      "orientation": "Gauche",
+      "pdg": "Inconnu",
+      "description": "Autre média de gauche, tourné vers...",
+      "interets_economiques": "Financements participatifs..."
+    },
+    "Thinkerview": {
+      "flux": "https://www.youtube.com/feeds/videos.xml?channel_id=UCQgWpmt02UtJkyO32HGUASQ",
+      "orientation": "Autres",
+      "pdg": "Inconnu",
+      "description": "Interviews de fond, différentes personnalités...",
+      "interets_economiques": "Financements divers, indépendance éditoriale"
+    },
+    "Frontières": {
+      "flux": "https://www.youtube.com/feeds/videos.xml?channel_id=UCysox6U9HnqgCiJ-Pd-Jy_w",
+      "orientation": "Droite",
+      "pdg": "Inconnu",
+      "description": "Média orienté à droite, sujets nationaux...",
+      "interets_economiques": "Soutien privé, partenariats..."
+    },
+    "Elucid": {
+      "flux": "https://www.youtube.com/feeds/videos.xml?channel_id=UCkgO4A3Fzm5D9Xu1Y_4vCKQ",
+      "orientation": "Centre",
+      "pdg": "Inconnu",
+      "description": "Média se définissant au centre...",
+      "interets_economiques": "Financements mixtes, partenariats institutionnels..."
+    }
+  }
+  
